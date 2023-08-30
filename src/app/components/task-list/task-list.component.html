@@ -1,0 +1,7 @@
+<div class="container-fluid vh-90 d-flex flex-row justify-content-center align-items-center bg-dark p-2">
+    <div class="row">
+        <div class="col" *ngFor="let x of tasks.todos">
+            <app-task [task]="x"> </app-task>
+        </div>
+    </div>
+</div>

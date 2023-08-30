@@ -1,0 +1,14 @@
+<div class="card m-2">
+   <div class="card-header">
+      {{task.todo}}
+   </div>
+   <div class="card-body">
+      <blockquote class="blockquote mb-0">
+         <p>completada:
+            <b [class.text-success]="task.completed" [class.text-danger]="!task.completed">
+               {{ task.completed }}
+            </b>
+         </p>
+      </blockquote>
+   </div>
+</div>
