@@ -11,3 +11,18 @@ export interface Task {
   completed: boolean;
   userId: number;
 }
+
+export const initialStateTask = {
+  id: 0,
+  todo: '',
+  completed: false,
+  userId: 0,
+}
+
+
+export const initialStateTaskList: TaskList = {
+  todos: [],
+  total: 0,
+  skip: 0,
+  limit: 0,
+}

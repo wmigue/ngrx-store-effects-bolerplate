@@ -94,7 +94,7 @@
               "./node_modules/boostrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "./node_modules/boostrap/dist/js/bootstrap.min.js"
+              "./node_modules/boostrap/dist/js/bootstrap.bundle.min.js"
             ]
           }
         }

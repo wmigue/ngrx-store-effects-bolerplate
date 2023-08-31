@@ -4,11 +4,12 @@
    </div>
    <div class="card-body">
       <blockquote class="blockquote mb-0">
-         <p>completada:
+         <p (click)="handleComplete()" >completada:
             <b [class.text-success]="task.completed" [class.text-danger]="!task.completed">
                {{ task.completed }}
             </b>
          </p>
+         <button (click)="handleDelete()" class="btn btn-warning">eliminar</button>
       </blockquote>
    </div>
 </div>

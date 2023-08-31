@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Task } from 'src/app/models/task';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Task, initialStateTask } from 'src/app/models/task';
+import { markAsCompleted, removeTodo } from 'src/app/state-manager/actions';
+import { todosAllSelector } from 'src/app/state-manager/selectors';
 
 @Component({
   selector: 'app-task',
@@ -8,18 +12,21 @@ import { Task } from 'src/app/models/task';
 })
 export class TaskComponent implements OnInit {
 
-  initialValues = {
-    id: 0,
-    todo: '',
-    completed: false,
-    userId: 0,
-  }
-  
-  @Input() task: Task = this.initialValues;
+  @Input() task: Task = initialStateTask;
 
-  constructor() { }
+  todos$: Observable<Task[]> = this.store.select(todosAllSelector);
+
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
+  }
+
+  handleComplete(): void {
+    this.store.dispatch(markAsCompleted(this.task));
+  }
+
+  handleDelete(): void {
+    this.store.dispatch(removeTodo(this.task));
   }
 
 }
